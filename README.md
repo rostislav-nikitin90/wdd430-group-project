@@ -22,9 +22,9 @@ Handcrafted Haven is a web application designed to connect artisans and crafters
 ## Getting Started
 ```bash
 git clone https://github.com/rostislav-nikitin90/wdd430-group-project.git
-cd wdd430-group-project
-npm install
-npm run dev
+cd [folder]
+pnpm install
+pnpm run dev
 ```
 
 ## Project Board
