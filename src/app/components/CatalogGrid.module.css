@@ -5,7 +5,7 @@
 }
 
 .heading {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     color: var(--color-text);
     font-size: 2rem;
     margin-bottom: 1.5rem;
