@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap');
+@import url('../styles/variables.css');
 
 :root {
---font-heading: 'Merriweather', serif;
---font-body: 'Lato', sans-serif;
+  --font-heading: 'Merriweather', serif;
+  --font-body: 'Lato', sans-serif;
 }
 
 html {
@@ -32,10 +33,16 @@ h1 {
 }
 
 
-nav, h2, h3, p, a, footer {
+nav,
+h2,
+h3,
+p,
+a,
+footer {
   font-family: var(--font-body);
 }
 
-nav, footer {
+nav,
+footer {
   background-color: var(--color-foreground);
 }
