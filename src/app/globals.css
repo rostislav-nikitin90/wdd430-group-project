@@ -3,6 +3,14 @@
 :root {
 --font-heading: 'Merriweather', serif;
 --font-body: 'Lato', sans-serif;
+--color-background: #F4F1DE;
+  --color-foreground: #FFF8F0;
+  --color-text: #3D2C2E;
+  --color-accent: #E07A5F;
+  --color-accent2: #81B29A;
+  --color-accent3: #264653;
+  --color-accent4: #8D3B3B;
+  --color-gold: #D9A441;
 }
 
 html {
@@ -39,3 +47,4 @@ nav, h2, h3, p, a, footer {
 nav, footer {
   background-color: var(--color-foreground);
 }
+
