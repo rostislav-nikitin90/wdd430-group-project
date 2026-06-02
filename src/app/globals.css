@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap');
+@import "tailwindcss";
 
 :root {
 --font-heading: 'Merriweather', serif;
@@ -34,6 +35,27 @@ h1 {
 
 nav, h2, h3, p, a, footer {
   font-family: var(--font-body);
+}
+/* Hero section styling */
+#hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* Slogan styling*/
+#slogan, #title{
+  padding-bottom: 20px;
+}
+
+#title {
+  font-family: var(--font-heading);
+}
+
+/*! Shop now button styling */
+#shop-now-button {
+  background-color: #264653;
+  padding: 14px 42px;
 }
 
 nav, footer {
