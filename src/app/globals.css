@@ -32,7 +32,7 @@ h1 {
 }
 
 
-nav, h2, h3, p, a, footer {
+nav, h2, h3, p, a, span, blockquote, footer {
   font-family: var(--font-body);
 }
 
