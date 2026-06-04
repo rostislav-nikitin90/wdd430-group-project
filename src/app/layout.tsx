@@ -1,4 +1,6 @@
 import './globals.css';
+import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 
 export const metadata = {
   title: 'Handcrafted Haven',
@@ -10,12 +12,13 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  console.log("RootLayout rendered"); // Replace this console message with actual layout code
   return (
     <html lang="en">
       <body>
-        {children} 
+        <NavBar />
+        {children}
+        <Footer />
       </body>
     </html>
-  ); // Replace with actual layout code (e.g., global NavBar, Footer, etc.)
+  );
 }
