@@ -1,10 +1,18 @@
-// /src/app/components/Reviews.tsx
-import { REVIEWS } from '@/lib/data';
-import type { Review } from '@/types';
-import styles from './Reviews.module.css';
+"use client";
+import { useEffect, useState } from "react";
+import styles from "./Reviews.module.css";
+
+interface Review {
+  review_id: number;
+  name: string;
+  comment: string;
+  star_rating: number;
+  product_id: number;
+}
 
 function getAverageRating(reviews: Review[]): number {
-  const total = reviews.reduce((sum, r) => sum + r.rating, 0);
+  if (reviews.length === 0) return 0;
+  const total = reviews.reduce((sum, r) => sum + r.star_rating, 0);
   return total / reviews.length;
 }
 
@@ -12,8 +20,10 @@ function StarRating({ rating }: { rating: number }) {
   return (
     <div className={styles.starRow} aria-label={`${rating} out of 5 stars`}>
       {[...Array(5)].map((_, i) => (
-        <span key={i} className={i < rating ? styles.starFilled : styles.starEmpty}
-        aria-hidden="true"
+        <span
+          key={i}
+          className={i < rating ? styles.starFilled : styles.starEmpty}
+          aria-hidden="true"
         >
           ★
         </span>
@@ -23,9 +33,33 @@ function StarRating({ rating }: { rating: number }) {
 }
 
 export default function Reviews() {
-  const average = getAverageRating(REVIEWS).toFixed(1);
-  const totalReviews = REVIEWS.length;
-  const randomReviews = REVIEWS.sort(() => 0.5 - Math.random()).slice(0, 3);
+  const [reviews, setReviews] = useState<Review[]>([]);
+
+  useEffect(() => {
+    async function fetchReviews() {
+      try {
+        const res = await fetch("/api/reviews");
+        const data = await res.json();
+        setReviews(data);
+      } catch (err) {
+        console.error("Error fetching reviews:", err);
+      }
+    }
+    fetchReviews();
+  }, []);
+
+  if (reviews.length === 0) {
+    return (
+      <section className={styles.reviewsSection}>
+        <h2 className={styles.reviewsHeading}>Customer Reviews</h2>
+        <p>No reviews yet. Be the first to leave feedback!</p>
+      </section>
+    );
+  }
+
+  const average = getAverageRating(reviews).toFixed(1);
+  const totalReviews = reviews.length;
+  const randomReviews = [...reviews].sort(() => 0.5 - Math.random()).slice(0, 3);
 
   return (
     <section className={styles.reviewsSection} aria-labelledby="reviews-heading">
@@ -33,15 +67,19 @@ export default function Reviews() {
         <h2 className={styles.reviewsHeading}>Customer Reviews</h2>
         <div className={styles.reviewsSummary}>
           <StarRating rating={Math.round(Number(average))} />
-          <span className={styles.reviewText}>{average}/5<span className={styles.reviewText}> Based on {totalReviews} reviews</span></span>
+          <span className={styles.reviewText}>
+            {average}/5 <span className={styles.reviewText}>Based on {totalReviews} reviews</span>
+          </span>
         </div>
       </div>
       <div className={styles.reviewsGrid}>
         {randomReviews.map((review) => (
-          <figure key={review.id} className={styles.reviewCard}>
-            <figcaption className={styles.reviewNameBox}><p className={styles.reviewText}>{review.name}</p></figcaption>
+          <figure key={review.review_id} className={styles.reviewCard}>
+            <figcaption className={styles.reviewNameBox}>
+              <p className={styles.reviewText}>{review.name}</p>
+            </figcaption>
             <div className={styles.starRowRating}>
-              <StarRating rating={review.rating} />
+              <StarRating rating={review.star_rating} />
             </div>
             <div className={styles.reviewCommentBox}>
               <blockquote className={styles.reviewText}>“{review.comment}”</blockquote>
@@ -52,3 +90,6 @@ export default function Reviews() {
     </section>
   );
 }
+
+
+
