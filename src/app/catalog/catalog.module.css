@@ -1,0 +1,16 @@
+.hero {
+  background-color: var(--color-accent3);
+  color: var(--color-foreground);
+  text-align: center;
+  padding: 4rem 1.5rem;
+}
+.heroTitle {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  opacity: 0.95;
+}
