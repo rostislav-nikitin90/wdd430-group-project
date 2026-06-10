@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap');
 
-:root {
---font-heading: 'Merriweather', serif;
---font-body: 'Lato', sans-serif;
-}
-
 html {
   height: 100%;
 }
@@ -39,3 +34,4 @@ nav, h2, h3, p, a, footer {
 nav, footer {
   background-color: var(--color-foreground);
 }
+
