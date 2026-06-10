@@ -1,21 +1,21 @@
-import './globals.css';
+// src/app/layout.tsx
+import "./globals.css";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: 'Handcrafted Haven',
-  description: 'A marketplace for unique handcrafted items',
+export const metadata: Metadata = {
+  title: "Handcrafted Haven",
+  description: "A marketplace for unique handcrafted items",
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   console.log("RootLayout rendered"); // Replace this console message with actual layout code
   return (
     <html lang="en">
+      <head />
       <body>
-        {children} 
+        {children}
       </body>
     </html>
-  ); // Replace with actual layout code (e.g., global NavBar, Footer, etc.)
+  );
 }
+

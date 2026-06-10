@@ -1,0 +1,204 @@
+.feedbackHeading {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    margin-bottom: 0.625rem;
+}
+
+.feedbackSection {
+  background-color: var(--color-background);
+  padding: 2rem 2.5rem;
+}
+
+.feedbackWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+.feedbackForm {
+  background-color: var(--color-foreground);
+  padding: 25px;
+  border-radius: 8px;
+  flex: 1; /* let the form grow to fill available space */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.feedbackForm label {
+  display: flex;
+  flex-direction: column;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 0.65rem;
+}
+
+.feedbackForm input,
+.feedbackForm select,
+.feedbackForm textarea {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  margin-top: 0.25rem;
+  border-radius: 6px;
+  border: 0;
+  font-size: 1.125rem;
+}
+
+.feedbackForm textarea {
+  resize: vertical;
+}
+
+.feedbackForm button {
+  background-color: var(--color-accent4);
+  color: var(--color-foreground);
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-top: 0.65rem;
+}
+
+.feedbackForm button:hover {
+  background-color: var(--color-accent);
+}
+
+.feedbackForm select,
+.feedbackForm button {
+  cursor: pointer;
+}
+
+/* Error message styling */
+.error {
+  color: var(--color-accent4); /* dark red */
+  font-size: 0.9rem;
+  display: block;
+}
+
+/* Success / status message styling */
+.statusMessage {
+  position: absolute;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-accent2); /* green */
+  margin: 0.6rem 0 0 1.6rem;
+}
+
+.feedbackImage {
+  margin-left: 20px;
+  max-width: 54%;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .feedbackWrapper {
+        flex-direction: column;
+    }
+
+    .feedbackForm {
+        min-width: 245px;
+    }
+
+    .feedbackForm input,
+    .feedbackForm select,
+    .feedbackForm textarea {
+        padding: 9px;
+    }
+
+    .feedbackForm textarea {
+        min-height: 80px;
+    }
+
+    .feedbackForm button {
+        padding: 0.75rem 1.063rem;
+    }
+
+    .feedbackImage {
+        display: none;
+    }
+}
+
+/* Tablet */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .feedbackForm input,
+    .feedbackForm select,
+    .feedbackForm textarea {
+        padding: 7px;
+    }
+
+    .feedbackForm textarea {
+        min-height: 44px;
+    }
+
+    .feedbackForm button {
+        padding: 0.75rem 1.063rem;
+    }
+
+    .feedbackImage {
+        display: none;
+    }
+}
+
+/* Tablet & mobile adjustments */
+@media (max-width: 1024px) {
+
+    .feedbackImage {
+        display: none;
+    }
+
+    .feedbackForm {
+        max-width: 100%; /* form stretches full width when image hidden */
+    }
+}
+
+/* Tablet and desktop adjustments */
+@media (min-width: 601px) {
+    .feedbackHeaderBox {
+        display: grid;
+        grid-template-columns: max-content auto;
+        grid-template-rows: auto; 
+        column-gap: 1rem;
+    }
+
+    .feedbackHeading {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+    }
+
+    .feedbackHeaderLineBox {
+        grid-column: 2 / 3;
+        grid-row: 1 / 2;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 10% auto;
+        padding-bottom: 0.7rem;
+    }
+
+    .feedbackHeaderLineBox div {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+        background-color: var(--color-accent4);
+    }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    .feedbackForm {
+        min-width: 26%;
+    }
+
+    .feedbackForm input,
+    .feedbackForm select,
+    .feedbackForm textarea {
+        padding: 6px;
+    }
+
+    .feedbackForm textarea {
+        min-height: 44px;
+    }
+
+    .feedbackForm button {
+        padding: 0.625rem 0.938rem;
+    }
+}
