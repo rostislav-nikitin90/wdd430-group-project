@@ -1,0 +1,271 @@
+.aboutPage {
+  background: #f4f1de;
+  min-height: 100vh;
+  font-family: "Lato", sans-serif;
+  color: #3d2c2e;
+}
+
+/* HERO */
+
+.hero {
+  background: #81b29a;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.heroTitle {
+  font-family: "Merriweather", serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff8f0;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.heroSubtitle {
+  font-family: "Lato", sans-serif;
+  color: #fff8f0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-top: 0.75rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* SECTION WRAPPER */
+
+.section,
+.contactSection {
+  width: min(1000px, 92%);
+  margin: 3rem auto;
+}
+
+/* HEADINGS */
+
+.sectionTitle {
+  font-family: "Lato", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #264653;
+  margin-bottom: 1.25rem;
+ 
+}
+
+.sectionTitle .sectionLine {
+  background-color: #8D3B3B;
+  height: 3px;
+  border: none;
+  margin-bottom: 1.25rem;
+  margin-top: 2.25rem;
+}
+
+/* MISSION */
+
+.missionGrid {
+  background: #264653;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.missionCard {
+  color: #fff8f0;
+  font-size: 1rem;
+  position: relative;
+  padding-left: 1.25rem;
+}
+
+.missionCard::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+}
+
+/* CONTACT INFO */
+
+.contactInfo {
+  background: #fff8f0;
+  border-radius: 6px;
+  padding: 1.5rem 2rem;
+}
+
+.contactInfo p {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+}
+
+.contactInfo p:last-child {
+  margin-bottom: 0;
+}
+
+/* FAQ + STORIES */
+
+.twoColumn {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.contentGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.contentBlock {
+  background: #fff8f0;
+  border-radius: 6px;
+  padding: 1.25rem;
+}
+
+.contentBlock h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #3d2c2e;
+}
+
+.contentBlock p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* CONTACT FORM */
+
+.contactForm {
+  background: #fff8f0;
+  border-radius: 6px;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contactForm input,
+.contactForm textarea {
+  background: #f4f1de;
+  border: none;
+  padding: 0.9rem 1rem;
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  color: #3d2c2e;
+}
+
+.contactForm input::placeholder,
+.contactForm textarea::placeholder {
+  color: #666;
+}
+
+.contactForm textarea {
+  resize: vertical;
+}
+
+.contactForm button {
+  align-self: flex-end;
+
+  background: #8d3b3b;
+  color: #fff8f0;
+
+  border: none;
+  border-radius: 4px;
+
+  padding: 0.75rem 1.5rem;
+
+  font-family: "Lato", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+}
+
+.contactForm button:hover {
+  background: #7b3333;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+  .heroTitle {
+    font-size: 2.5rem;
+  }
+
+  .twoColumn {
+    grid-template-columns: 1fr;
+  }
+
+  .sectionTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+}
+
+/* =================================
+   MISSION + CONTACT ROW
+================================= */
+
+.infoRow {
+  width: min(1000px, 92%);
+  margin: 3rem auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.infoColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+/* =================================
+   CONTACT FORM + IMAGE
+================================= */
+
+.contactRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.formWrapper {
+  background: #fff8f0;
+  border-radius: 6px;
+  padding: 2rem;
+}
+
+.imageWrapper {
+  overflow: hidden;
+  border-radius: 6px;
+  background: #ddd;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* =================================
+   MOBILE
+================================= */
+
+@media (max-width: 768px) {
+  .infoRow {
+    grid-template-columns: 1fr;
+  }
+
+  .contactRow {
+    grid-template-columns: 1fr;
+  }
+
+  .imageWrapper {
+    min-height: 300px;
+  }
+}
