@@ -7,20 +7,16 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "seed": "node ./scripts/seed.js",
-    "alter": "node ./scripts/alterProfileTable.js",
-    "check2": "node ./scripts/checkRequiredFields.js",
-    "check": "node ./scripts/checkDb.js"
-  },
+    "seed": "node ./scripts/seed.js"  },
+
   "dependencies": {
     "@neondatabase/serverless": "^1.1.0",
-    "bcryptjs": "^3.0.3",
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
   },
+  
   "devDependencies": {
-    "@types/bcryptjs": "^3.0.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
