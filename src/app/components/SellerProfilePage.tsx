@@ -1,7 +1,7 @@
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { neon } from '@neondatabase/serverless';
-import styles from '@/styles/auth.module.css';
+import styles from "./auth.module.css";
 import AddProductForm from '@/app/components/AddProductForm';
 
 // enh

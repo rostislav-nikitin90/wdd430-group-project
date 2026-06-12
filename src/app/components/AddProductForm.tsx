@@ -3,7 +3,7 @@
 import { useActionState, useRef, useEffect } from 'react';
 import { addProductAction } from '@/lib/actions/product';
 
-import styles from '@/styles/auth.module.css';
+import styles from "./auth.module.css";
 
 export default function AddProductForm() {
   const [state, formAction, isPending] = useActionState(addProductAction, null);
