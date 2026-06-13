@@ -1,12 +1,14 @@
-'use client';
+"use client";
 
-import { useMemo, useState } from 'react';
-import styles from './CatalogGrid.module.css';
+import { useMemo, useState } from "react";
+import styles from "./CatalogGrid.module.css";
+import StarRating from "./StarRating";
+import { Product } from "@/types";
 
-const CATEGORY_FILTERS = ['All', 'Jewelry', 'Home Decor', 'Accessories'] as const;
+const CATEGORY_FILTERS = ["All", "Jewelry", "Home Decor", "Accessories"] as const;
 type CategoryFilter = (typeof CATEGORY_FILTERS)[number];
-type PriceFilter = 'all' | 'under-25' | '25-to-50' | 'over-50';
-type SortOption = 'default' | 'price-low' | 'price-high';
+type PriceFilter = "all" | "under-25" | "25-to-50" | "over-50";
+type SortOption = "default" | "price-low" | "price-high";
 
 interface CatalogGridProps {
   products: Product[];
@@ -16,32 +18,32 @@ interface CatalogGridProps {
 
 export default function CatalogGrid({
   products,
-  heading = 'Featured Products',
+  heading = "Featured Products",
   showControls = true,
 }: CatalogGridProps) {
-  const [category, setCategory] = useState<CategoryFilter>('All');
-  const [priceFilter, setPriceFilter] = useState<PriceFilter>('all');
-  const [sort, setSort] = useState<SortOption>('default');
+  const [category, setCategory] = useState<CategoryFilter>("All");
+  const [priceFilter, setPriceFilter] = useState<PriceFilter>("all");
+  const [sort, setSort] = useState<SortOption>("default");
 
   const visibleProducts = useMemo(() => {
     let result = [...products];
 
-    if (category !== 'All') {
+    if (category !== "All") {
       result = result.filter((p) => p.category === category);
     }
 
-    if (priceFilter !== 'all') {
+    if (priceFilter !== "all") {
       result = result.filter((p) => {
         const price = Number(p.price);
-        if (priceFilter === 'under-25') return price < 25;
-        if (priceFilter === '25-to-50') return price >= 25 && price <= 50;
-        if (priceFilter === 'over-50') return price > 50;
+        if (priceFilter === "under-25") return price < 25;
+        if (priceFilter === "25-to-50") return price >= 25 && price <= 50;
+        if (priceFilter === "over-50") return price > 50;
         return true;
       });
     }
 
-    if (sort === 'price-low') result.sort((a, b) => Number(a.price) - Number(b.price));
-    if (sort === 'price-high') result.sort((a, b) => Number(b.price) - Number(a.price));
+    if (sort === "price-low") result.sort((a, b) => Number(a.price) - Number(b.price));
+    if (sort === "price-high") result.sort((a, b) => Number(b.price) - Number(a.price));
 
     return result;
   }, [products, category, priceFilter, sort]);
@@ -58,7 +60,7 @@ export default function CatalogGrid({
                 key={c}
                 type="button"
                 onClick={() => setCategory(c)}
-                className={`${styles.chip} ${category === c ? styles.chipActive : ''}`}
+                className={`${styles.chip} ${category === c ? styles.chipActive : ""}`}
                 aria-pressed={category === c}
               >
                 {c}
@@ -102,6 +104,7 @@ export default function CatalogGrid({
                 <h3 className={styles.cardTitle}>{product.name}</h3>
                 <p className={styles.description}>{product.description}</p>
                 <p className={styles.price}>${Number(product.price).toFixed(2)}</p>
+                <StarRating rating={Number(product.avg_rating)} />
               </div>
             </li>
           ))}

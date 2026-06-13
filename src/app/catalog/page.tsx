@@ -1,12 +1,12 @@
-import NavBar from '../components/NavBar';
-import Footer from '../components/Footer';
-import CatalogGrid from '../components/CatalogGrid';
+import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
+import { getProducts } from "@/lib/data";
+import CatalogGrid from "../components/CatalogGrid";
 import FeedbackForm from "../components/FeedbackForm";
-import { fetchProducts } from '@/lib/data';
-import styles from './catalog.module.css';
+import styles from "./catalog.module.css";
 
 export default async function CatalogPage() {
-  const products = await fetchProducts();
+  const products = await getProducts();
 
   return (
     <>

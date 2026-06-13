@@ -1,5 +1,5 @@
-.section { padding: 3rem 1.5rem; max-width: 1280px; margin: 0 auto; }
-.heading { font-family: var(--font-body); color: var(--color-text); font-size: 2rem; margin-bottom: 1.5rem; }
+.section { background: var(--color-background); padding: 3rem 2.5rem; max-width: 100%; margin: 0 auto; }
+.heading { font-family: var(--font-body); color: var(--color-text); font-size: 1.75rem; margin-bottom: 1.5rem; }
 .toolbar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 2rem; }
 .categories { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { padding: 0.5rem 1rem; border: 1px solid var(--color-text); background: var(--color-foreground); color: var(--color-text); border-radius: 999px; font-family: var(--font-body); font-size: 0.9rem; cursor: pointer; transition: background 0.15s ease, color 0.15s ease; }
@@ -14,14 +14,14 @@
 .imageWrap { width: 100%; aspect-ratio: 1/1; background: var(--color-background); overflow: hidden; }
 .image { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cardBody { display: flex; flex-direction: column; padding: 0.75rem 1rem 1rem; gap: 0.25rem; flex-grow: 1; }
-.cardTitle { font-family: var(--font-body); font-weight: 700; color: var(--color-text); font-size: 1rem; }
-.description { font-family: var(--font-body); color: var(--color-text); opacity: 0.75; font-size: 0.85rem; line-height: 1.4; flex-grow: 1; }
-.price { font-family: var(--font-body); font-weight: 700; color: var(--color-accent2); font-size: 1.1rem; margin-top: 0.25rem; }
+.cardTitle { font-family: var(--font-body); font-weight: 600; color: var(--color-text); font-size: 1rem; }
+.description { font-family: var(--font-body); color: var(--color-text); opacity: 0.75; font-size: 0.875rem; line-height: 1.4; flex-grow: 1; }
+.price { font-family: var(--font-body); font-weight: 700; color: var(--color-accent2); font-size: 1.125rem; margin: 0.25rem 0 0.25rem; }
 .empty { text-align: center; color: var(--color-text); font-family: var(--font-body); padding: 2rem; opacity: 0.7; }
 
 @media (max-width: 1024px) { .grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 640px) {
-  .grid { grid-template-columns: 1fr; gap: 1rem; }
+  .grid { grid-template-columns: 1fr; gap: 1.5rem; }
   .toolbar { flex-direction: column; align-items: stretch; }
   .dropdowns { width: 100%; }
   .select { width: 100%; }

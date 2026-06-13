@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import { getReviews } from "@/lib/data";
 import styles from "./Reviews.module.css";
 
 interface Review {
@@ -38,9 +39,8 @@ export default function Reviews() {
   useEffect(() => {
     async function fetchReviews() {
       try {
-        const res = await fetch("/api/reviews");
-        const data = await res.json();
-        setReviews(data);
+        const data = await getReviews();
+        setReviews(data as Review[]);
       } catch (err) {
         console.error("Error fetching reviews:", err);
       }

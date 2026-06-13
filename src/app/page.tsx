@@ -1,20 +1,19 @@
-import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import CatalogGrid from './components/CatalogGrid';
-import Reviews from './components/Reviews';
-import Community from './components/Community';
-import Footer from './components/Footer';
-import { fetchProducts } from '@/lib/data';
+import NavBar from "./components/NavBar";
+import Hero from "./components/Hero";
+import CatalogGrid from "./components/CatalogGrid";
+import { getHomeProducts } from "@/lib/data";
+import Reviews from "./components/Reviews";
+import Community from "./components/Community";
+import Footer from "./components/Footer";
 
 export default async function HomePage() {
-  const products = await fetchProducts();
-  const featured = products.slice(0, 4);
+  const products = await getHomeProducts();
 
   return (
     <>
       <NavBar />
       <Hero />
-      <CatalogGrid products={featured} heading="Featured Products" showControls={false} />
+      <CatalogGrid products={products} heading="Featured Products" showControls={false} />
       <Reviews />
       <Community />
       <Footer />

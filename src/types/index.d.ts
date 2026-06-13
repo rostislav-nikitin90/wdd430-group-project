@@ -11,6 +11,7 @@ export interface Product {
   description: string;
   price: number;
   category?: string;
+  avg_rating?: number;
   profile_id: number;
 }
 

@@ -15,12 +15,13 @@
 
 .reviewsGrid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
   margin-top: 1rem;
 }
 
 .reviewsSummary .reviewText {
   font-size: 1.25rem;
+  margin-bottom: 0.3rem;
 }
 
 .reviewsSummary .reviewText .reviewText {
@@ -56,7 +57,7 @@
   }
 
   .reviewCard {
-    padding: 2rem;
+    padding: 1rem;
   }
 }
 
@@ -104,6 +105,10 @@
     display: flex;
     align-items: center;
   }
+
+  .reviewsSummary .starRow {
+    margin-bottom: 0.2rem;
+  }
   
   /* Three columns */
   .reviewsGrid {
@@ -111,7 +116,7 @@
   }
 
   .reviewCard {
-    padding: 2.25rem;
+    padding: 1rem;
   }
 }
 
@@ -148,9 +153,10 @@
   height: fit-content;
   background-color: var(--color-accent3);
   padding: 0 0.25rem 0.188rem;
+  border-radius: 0.5rem;
 }
 
-.reviewCard, .starRow {
+.reviewCard {
   border-radius: 0.5rem;
 }
 

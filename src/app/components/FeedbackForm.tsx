@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import styles from "./FeedbackForm.module.css";
+import { submitReview, getProducts } from "@/lib/data";
 
 interface Product {
   product_id: number;
@@ -24,9 +25,8 @@ export default function FeedbackForm() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch("/api/products");
-        const data = await res.json();
-        setProducts(data);
+        const data = await getProducts();
+        setProducts(data as Product[]);
       } catch (err) {
         console.error("Error fetching products:", err);
       }
@@ -62,25 +62,22 @@ export default function FeedbackForm() {
     }
 
     try {
-      const res = await fetch("/api/reviews", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+      await submitReview({
+        name: formData.name,
+        email: formData.email,
+        comment: formData.comment,
+        starRating: formData.starRating,
+        productId: Number(formData.productId),
       });
 
-      if (res.ok) {
-        setStatus("Review submitted successfully!");
-        setFormData({
-          name: "",
-          email: "",
-          productId: "",
-          comment: "",
-          starRating: 5,
-        });
-      } else {
-        const error = await res.json();
-        setStatus(error.error || "Error submitting review.");
-      }
+      setStatus("Review submitted successfully!");
+      setFormData({
+        name: "",
+        email: "",
+        productId: "",
+        comment: "",
+        starRating: 5,
+      });
     } catch (err) {
       console.error("Error submitting review:", err);
       setStatus("Error submitting review. Please try again.");
@@ -182,11 +179,16 @@ export default function FeedbackForm() {
         )}
 
         <div className={styles.feedbackImage}>
-          <img src="/images/vase-feedback-form.webp" alt="A white ceramic vase holding three bright yellow sunflowers sits on a light wooden surface against a turquoise wooden plank background" />
+          <img
+            src="/images/vase-feedback-form.webp"
+            alt="A white ceramic vase holding three bright yellow sunflowers sits on a light wooden surface against a turquoise wooden plank background"
+            loading="lazy"
+          />
         </div>
       </div>
     </section>
   );
 }
+
 
 
