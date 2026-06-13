@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import './NavBar.css';
-import './Footer.css';
+import { logoutAction } from "@/lib/actions/auth";
+import "./NavBar.css";
+import "./Footer.css";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -14,9 +15,14 @@ const navLinks = [
   { label: "About", href: "/about" },
 ];
 
-export default function NavBar() {
+export default function NavBar({ isLoggedIn }: { isLoggedIn: boolean }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  const handleLogout = async () => {
+    await logoutAction();
+    setMenuOpen(false);
+  };
 
   return (
     <nav>
@@ -39,8 +45,24 @@ export default function NavBar() {
         </ul>
 
         <div className="navbar-actions">
-          <Link href="/login" className="btn-login">Login</Link>
-          <Link href="/signup" className="btn-signup">Sign Up</Link>
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="btn-login"
+              style={{ cursor: "pointer" }}
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link href="/login" className="btn-login">
+                Login
+              </Link>
+              <Link href="/signup" className="btn-signup">
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
 
         <button
@@ -48,7 +70,9 @@ export default function NavBar() {
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          <span /><span /><span />
+          <span />
+          <span />
+          <span />
         </button>
       </div>
 
@@ -63,9 +87,40 @@ export default function NavBar() {
             {link.label}
           </Link>
         ))}
+
         <div className="navbar-mobile-actions">
-          <Link href="/login" className="btn-login" onClick={() => setMenuOpen(false)}>Login</Link>
-          <Link href="/signup" className="btn-signup" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+          {isLoggedIn ? (
+            <button
+              onClick={handleLogout}
+              className="btn-login"
+              style={{
+                cursor: "pointer",
+                width: "100%",
+                textAlign: "center",
+                border: "none",
+              }}
+            >
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link
+                href="/login"
+                className="btn-login"
+                onClick={() => setMenuOpen(false)}
+              >
+                Login
+              </Link>
+
+              <Link
+                href="/signup"
+                className="btn-signup"
+                onClick={() => setMenuOpen(false)}
+              >
+                Sign Up
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </nav>

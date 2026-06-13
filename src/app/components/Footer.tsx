@@ -56,13 +56,15 @@ export default function Footer() {
   return (
     <footer>
       <div className="footer-inner">
-        <ul className="footer-links">
-          {footerLinks.map((link) => (
-            <li key={link.href}>
-              <Link href={link.href}>{link.label}</Link>
-            </li>
-          ))}
-        </ul>
+
+          <ul className="footer-links">
+            {footerLinks.map((link) => (
+              <li key={`${link.href}-${link.label}`}>
+                <Link href={link.href}>{link.label}</Link>
+              </li>
+            ))}
+          </ul>
+
         <div className="footer-social">
           {socialLinks.map((social) => (
             <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label}>

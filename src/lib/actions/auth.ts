@@ -98,3 +98,11 @@ export async function loginAction(prevState: any, formData: FormData) {
     return { error: 'Failed to sign in.' };
   }
 }
+
+export async function logoutAction() {
+  const cookieStore = await cookies();
+  
+  cookieStore.delete('session_user_id');
+  
+  redirect('/'); 
+}
