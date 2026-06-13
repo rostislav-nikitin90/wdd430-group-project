@@ -1,5 +1,6 @@
 require('dotenv').config({ path: '.env.local' });
 
+
 const { neon } = require('@neondatabase/serverless');
 
 // To modify the db with this file, is needed to run each sql consult individually in order 1,2, 3
