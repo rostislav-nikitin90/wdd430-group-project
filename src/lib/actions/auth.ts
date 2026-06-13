@@ -8,8 +8,11 @@ import { redirect } from 'next/navigation';
 const sql = neon(process.env.DATABASE_URL!);
 
 export async function signupAction(prevState: any, formData: FormData) {
+
   const name = formData.get('fullName') as string;
+
   const email = formData.get('email') as string;
+
   const password = formData.get('password') as string;
 
   if (!name || !email || !password) {
@@ -18,17 +21,19 @@ export async function signupAction(prevState: any, formData: FormData) {
 
   try {
     const existingUser = await sql`
-      SELECT * FROM profiles WHERE email = ${email}
+      SELECT * FROM profiles WHERE contact = ${email}
     `;
 
     if (existingUser.length > 0) {
+
       return { error: 'Email address is already in use.' };
+
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
 
     await sql`
-      INSERT INTO profiles (name, email, password_hash)
+      INSERT INTO profiles (name, contact, password_hash)
       VALUES (${name}, ${email}, ${passwordHash})
     `;
 
@@ -41,7 +46,9 @@ export async function signupAction(prevState: any, formData: FormData) {
 }
 
 export async function loginAction(prevState: any, formData: FormData) {
+
   const email = formData.get('email') as string;
+
   const password = formData.get('password') as string;
 
   if (!email || !password) {
@@ -50,7 +57,7 @@ export async function loginAction(prevState: any, formData: FormData) {
 
   try {
     const users = await sql`
-      SELECT * FROM profiles WHERE email = ${email}
+      SELECT * FROM profiles WHERE contact = ${email}
     `;
 
     if (users.length === 0) {

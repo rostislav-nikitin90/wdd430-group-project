@@ -20,7 +20,7 @@ export default async function ProfilePage() {
   const sql = neon(process.env.DATABASE_URL!);
 
   const profiles = await sql`
-    SELECT name, bio, profile_image, location 
+    SELECT name, bio, image 
     FROM profiles 
     WHERE profile_id = ${profileId}
   `;

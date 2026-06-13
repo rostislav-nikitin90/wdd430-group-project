@@ -16,6 +16,7 @@ export async function addProductAction(
 ): Promise<ActionState> {
   
   const cookieStore = await cookies();
+  
   const sessionCookie = cookieStore.get('session_user_id');
 
   if (!sessionCookie || !sessionCookie.value) {
