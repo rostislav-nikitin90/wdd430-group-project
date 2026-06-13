@@ -81,6 +81,21 @@ export default function AddProductForm() {
         </div>
 
         <div className={styles.inputGroup}>
+          <select 
+            name="productCategory" 
+            className={styles.input} 
+            required
+            defaultValue=""
+          >
+            <option value="" disabled>Select a Category</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Home Decor">Home Decor</option>
+            <option value="Accessories">Accessories</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div className={styles.inputGroup}>
 
           <input type="number" name="productPrice" placeholder="Product Price" step="0.01" className={styles.input} required />
         </div>

@@ -1,5 +1,8 @@
 require('dotenv').config({ path: '.env.local' });
 
+// This file is useful to check all the data in the db, related to profiles and products
+// run "pnpm check" on conosole to see the results
+
 const { neon } = require('@neondatabase/serverless');
 
 async function checkData() {
@@ -7,11 +10,16 @@ async function checkData() {
 
   try {
     const printVertical = (data, tableName) => {
-      console.log(`\n=== Records from profiles: ${tableName.toUpperCase()} (${data.length} records) ===`);
+
+      console.log(`\n=== Records from: ${tableName.toUpperCase()} (${data.length} records) ===`);
+
       data.forEach((row, index) => {
+
         console.log(`\n--- Record #${index + 1} ---`);
         console.dir(row, { depth: null, colors: true });
+
       });
+
     };
 
     console.log("Checking DB...");

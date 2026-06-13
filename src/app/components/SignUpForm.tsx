@@ -53,6 +53,24 @@ export default function SignUpPage() {
           />
         </div>
 
+        <div className={styles.inputGroup}>
+          <input
+            type="text"
+            name="profileImage"
+            placeholder="Profile Image URL (Optional)"
+            className={styles.input}
+          />
+        </div>
+
+        <div className={styles.inputGroup}>
+          <textarea
+            name="bio"
+            placeholder="Tell us about yourself (Optional)"
+            className={styles.input}
+            style={{ height: '80px', paddingTop: '0.5rem', resize: 'vertical' }}
+          />
+        </div>
+
         <button
           type="submit"
           className={`${styles.submitBtn} ${styles.signupBtn}`}

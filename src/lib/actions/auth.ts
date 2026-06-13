@@ -14,6 +14,14 @@ export async function signupAction(prevState: any, formData: FormData) {
   const email = formData.get('email') as string;
 
   const password = formData.get('password') as string;
+  
+  let image = formData.get('profileImage') as string;
+
+  let bio = formData.get('bio') as string;
+
+  const DEFAULT_IMAGE = '/images/sellers/default-profile.jpg';
+  
+  const DEFAULT_BIO = 'A bio has not been added yet.';
 
   if (!name || !email || !password) {
     return { error: 'All fields are required.' };
@@ -25,25 +33,23 @@ export async function signupAction(prevState: any, formData: FormData) {
     `;
 
     if (existingUser.length > 0) {
-
       return { error: 'Email address is already in use.' };
-
     }
 
     const passwordHash = await bcrypt.hash(password, 10);
 
     await sql`
-      INSERT INTO profiles (name, contact, password_hash)
-      VALUES (${name}, ${email}, ${passwordHash})
+      INSERT INTO profiles (name, contact, password_hash, image, bio)
+      VALUES (${name}, ${email}, ${passwordHash}, ${image || DEFAULT_IMAGE}, ${bio || DEFAULT_BIO})
     `;
 
     redirect('/login');
   } catch (error: any) {
     if (error.digest?.includes('NEXT_REDIRECT')) throw error;
-
     return { error: 'A server error occurred. Please try again.' };
   }
 }
+
 
 export async function loginAction(prevState: any, formData: FormData) {
 

@@ -33,17 +33,19 @@ export async function addProductAction(
   
   const price = parseFloat(formData.get('productPrice') as string);
 
-  if (!name || !description || isNaN(price)) {
-    return { error: 'Name, price and description are required.' };
+  const category = formData.get('productCategory') as string;
+
+  if (!name || !description || isNaN(price) || !category) {
+    return { error: 'Name, price, description and category are required.' };
   }
 
   try {
     const sql = neon(process.env.DATABASE_URL!);
     
     await sql`
-      INSERT INTO products (name, image, description, price, profile_id)
-      VALUES (${name}, ${image}, ${description}, ${price}, ${profileId})
-    `;
+          INSERT INTO products (name, image, description, price, profile_id, category)
+          VALUES (${name}, ${image}, ${description}, ${price}, ${profileId}, ${category})
+        `;
 
     revalidatePath('/profile');
     
