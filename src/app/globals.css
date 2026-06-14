@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap');
-@import "tailwindcss";
 @import url('../styles/variables.css');
+@import "tailwindcss";
 
 :root {
 --font-heading: 'Merriweather', serif;
@@ -12,6 +12,7 @@
 --color-accent2: #81B29A;
 --color-accent3: #264653;
 --color-accent4: #8D3B3B;
+--color-accent5: #ECB349;
 }
 
 html {
