@@ -1,6 +1,6 @@
 import Image from "next/image";
 import styles from "./sellers.module.css";
-import { pool } from "@/lib/data";
+import { pool } from "@/lib/db.server";
 
 type Profile = {
   name: string;
