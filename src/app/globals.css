@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap');
 @import "tailwindcss";
+@import url('../styles/variables.css');
 
 :root {
 --font-heading: 'Merriweather', serif;
@@ -35,12 +36,18 @@ body {
   margin: 0;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 h1 {
   font-family: var(--font-heading);
 }
 
 
-nav, h2, h3, p, a, footer {
+nav, h2, h3, p, a, button, span, blockquote, label, input, select, textarea, footer {
   font-family: var(--font-body);
 }
 /* Hero section styling */

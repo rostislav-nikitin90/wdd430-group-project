@@ -1,11 +1,11 @@
-import { cookies } from 'next/headers';
 import './globals.css';
+import type { Metadata } from "next";
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
-export const metadata = {
-  title: 'Handcrafted Haven',
-  description: 'A marketplace for unique handcrafted items',
+export const metadata: Metadata = {
+  title: "Handcrafted Haven",
+  description: "A marketplace for unique handcrafted items",
 };
 
 export default async function RootLayout({
@@ -19,6 +19,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head />
       <body>
         <NavBar isLoggedIn={isLoggedIn} />
         {children}

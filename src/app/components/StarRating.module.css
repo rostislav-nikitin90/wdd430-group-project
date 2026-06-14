@@ -1,0 +1,21 @@
+.starRow {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+  background-color: var(--color-accent3);
+  padding: 0 0.25rem 0.188rem;
+  border-radius: 0.5rem;
+}
+
+.starFilled {
+  color: var(--color-accent5); /* gold/yellow tone */
+}
+
+.starEmpty {
+  color: var(--color-foreground); /* background color for empty stars */
+}
+
+.starFilled, .starEmpty {
+  font-size: 20px;
+  padding: 0 0.063rem 0 0.063rem;
+}

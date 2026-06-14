@@ -1,20 +1,21 @@
-
-interface Profile {
+export interface Profile {
   profile_id: number;
   name: string;
   contact?: string;
 }
 
-interface Product {
+export interface Product {
   product_id: number;
   name: string;
   image: string;
   description: string;
   price: number;
+  category?: string;
+  avg_rating?: number;
   profile_id: number;
 }
 
-interface Review {
+export interface Review {
   review_id: number;
   name: string;
   email?: string;
@@ -23,7 +24,7 @@ interface Review {
   product_id: number;
 }
 
-interface Artisan {
+export interface Artisan {
   id: string;
   name: string;
   businessName: string;
@@ -31,3 +32,4 @@ interface Artisan {
   impact: string;
   bgImage: string;
 }
+
