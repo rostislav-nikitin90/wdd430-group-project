@@ -1,3 +1,4 @@
+import { cookies } from 'next/headers';
 import './globals.css';
 import type { Metadata } from "next";
 import NavBar from './components/NavBar';
