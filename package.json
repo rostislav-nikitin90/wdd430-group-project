@@ -12,12 +12,9 @@
     "check": "node ./scripts/check.js"
   },
   "dependencies": {
-<<<<<<< HEAD
     "@neondatabase/serverless": "^1.1.0",
     "bcryptjs": "^3.0.3",
-=======
     "@tailwindcss/postcss": "^4.3.0",
->>>>>>> hero-section
     "next": "16.2.6",
     "react": "19.2.4",
     "react-dom": "19.2.4"
@@ -26,11 +23,8 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-<<<<<<< HEAD
     "dotenv": "^17.4.2",
-=======
     "autoprefixer": "^10.5.0",
->>>>>>> hero-section
     "eslint": "^9",
     "eslint-config-next": "16.2.6",
     "postcss": "^8.5.15",
