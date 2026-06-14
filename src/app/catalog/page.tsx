@@ -1,5 +1,3 @@
-import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
 import { getProducts } from "@/lib/data";
 import CatalogGrid from "../components/CatalogGrid";
 import FeedbackForm from "../components/FeedbackForm";
@@ -10,7 +8,6 @@ export default async function CatalogPage() {
 
   return (
     <>
-      <NavBar />
       <section className={styles.hero}>
         <h1 className={styles.heroTitle}>Explore Our Catalog</h1>
         <p className={styles.heroSubtitle}>
@@ -19,7 +16,6 @@ export default async function CatalogPage() {
       </section>
       <CatalogGrid products={products} heading="Featured Collection" showControls={true} />
       <FeedbackForm />
-      <Footer />
     </>
   );
 }
