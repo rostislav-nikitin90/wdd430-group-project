@@ -2,6 +2,7 @@
 import { neon } from "@neondatabase/serverless";
 import { revalidatePath } from "next/cache";
 import { Product } from "@/types";
+import { Pool } from "pg";
 
 // Debug check
 console.log("DATABASE_URL:", process.env.DATABASE_URL);
@@ -67,3 +68,19 @@ export async function submitReview(formData: {
   revalidatePath("/catalog"); // forces the catalog page to refresh its data
   revalidatePath("/"); // forces the home page to refresh its data
 }
+
+const globalForPg = global as unknown as {
+  pool: Pool | undefined;
+};
+
+export const pool =
+  globalForPg.pool ??
+  new Pool({
+    connectionString: process.env.DATABASE_URL,
+    ssl: {
+      rejectUnauthorized: false,
+    },
+  });
+
+if (process.env.NODE_ENV !== "production") {
+  globalForPg.pool = pool;
